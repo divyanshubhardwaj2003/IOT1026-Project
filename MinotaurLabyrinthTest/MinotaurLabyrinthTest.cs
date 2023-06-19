@@ -63,5 +63,18 @@ namespace MinotaurLabyrinthTest
             minotaur.Activate(hero, map);
             Assert.AreEqual(hero.Location, new Location(2, 3));
         }
+
+        [TestMethod]
+        public void GelMoveTest() {
+            Hero hero = new Hero();
+            GelatinousCube gel = new();
+            var getLocation = newLocation(3,3);
+            Map map = new Map(4, 4);
+            map.GetRoomLocation(new(3, 3)).Addmonster(gel);
+            gel.Move(hero, map);
+              //New location should be (2,3)
+              var ExpectedLocation = newLocation(2,3);
+              Assert.AreEqual(new Location(2,3), gel.location);
+        }
     }
 }
